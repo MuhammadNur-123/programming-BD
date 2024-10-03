@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-color">
+        <div class="logo">
+            <img src="static/assets/img/p.png" alt="Logo">
+            <h1>rogramming-BD</h1>
+        </div>
+    <section class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-group mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="form-group d-flex justify-content-between align-items-center">
+                                    <a class="small" href="{% url 'password_reset_request' %}">Forgot Password?</a>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center py-3">
+                            <div class="small">
+                                <a href="{% url 'create_user' %}">Need an account? Sign up!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+</section>
+</body>
+
+</html>
+
+
+<style>
+    /* Global Styles */
+
+
+
+/* Background Gradient */
+.bg-gradient-primary {
+    background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(0,210,255,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card Styles */
+.card {
+    background: #c09ee213;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Box Shadow */
+    border: none;
+    padding: 20px;
+}
+
+/* Form Elements */
+.form-control {
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #1b5ea2;
+    border: 1px solid #ced4da;
+}
+
+.form-floating {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-floating label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 10px;
+    font-size: 12px;
+    color: #0d6efd;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Button Hover Shadow */
+}
+
+/* Centering Elements */
+#layoutAuthentication {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#layoutAuthentication_content {
+    width: 100%;
+    max-width: 450px;
+}
+
+.card-header h3 {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer Links */
+.card-footer .small a {
+    color: #007bff;
+}
+
+.card-footer .small a:hover {
+    text-decoration: underline;
+    color: #517397;
+}
+.bg-color{
+    background-color: #10427789;
+}
+    /* General Styles */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0c0113da;
+    color: rgb(17, 1, 1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 7px;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+}
+
+.logo{
+    
+    background-color: #0c0110f0;
+}
+
+.logo h1 {
+    display: inline-block;
+    margin-left:0px;
+    font-size: 30px;
+    padding-bottom: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgba(136, 15, 223, 0.782);
+   
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: rgb(11, 103, 184);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #16c1d7;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('static/assets/img/bg-2.jpg');
+    background-size: cover;
+}
+
+.hero .content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #e19e31;
+}
+
+.hero .content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.explore-btn {
+    background-color: #9b59b6;
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: #8e44ad;
+}
+
+/* Technology Icons */
+.tech-icons {
+    margin-top: 50px;
+}
+
+.tech-icons img {
+    width: 80px;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* City Skyline */
+
+
+
+</style>

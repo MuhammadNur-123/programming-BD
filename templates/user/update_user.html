@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center">Update User</h2>
+        <form method="post" action="{% url 'update_user' user.id %}" enctype="multipart/form-data" id="updateUserForm">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <small class="form-text text-muted">Leave blank if you don't want to change the password.</small>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="education">Education Level</label>
+                <select class="form-control" id="education" name="education" required>
+                    <option value="PSC" {% if user.education == 'PSC' %}selected{% endif %}>Primary School Certificate (PSC)</option>
+                    <option value="JSC" {% if user.education == 'JSC' %}selected{% endif %}>Junior School Certificate (JSC)</option>
+                    <option value="SSC" {% if user.education == 'SSC' %}selected{% endif %}>Secondary School Certificate (SSC)</option>
+                    <option value="HSC" {% if user.education == 'HSC' %}selected{% endif %}>Higher Secondary Certificate (HSC)</option>
+                    <option value="DIP" {% if user.education == 'DIP' %}selected{% endif %}>Diploma in Engineering (DIP)</option>
+                    <option value="BSC" {% if user.education == 'BSC' %}selected{% endif %}>Bachelor of Science (BSC)</option>
+                    <option value="BA" {% if user.education == 'BA' %}selected{% endif %}>Bachelor of Arts (BA)</option>
+                    <option value="BBA" {% if user.education == 'BBA' %}selected{% endif %}>Bachelor of Business Administration (BBA)</option>
+                    <option value="MSC" {% if user.education == 'MSC' %}selected{% endif %}>Master of Science (MSC)</option>
+                    <option value="MA" {% if user.education == 'MA' %}selected{% endif %}>Master of Arts (MA)</option>
+                    <option value="MBA" {% if user.education == 'MBA' %}selected{% endif %}>Master of Business Administration (MBA)</option>
+                    <option value="PHD" {% if user.education == 'PHD' %}selected{% endif %}>Doctor of Philosophy (PHD)</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ user.phone_number }}" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3" required>{{ user.address }}</textarea>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="image">Profile Image</label>
+                <input type="file" class="form-control" id="image" name="image">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="Profile Image" width="100" class="mt-2">
+                {% endif %}
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="user_type">User Type</label>
+                <select class="form-control" id="user_type" name="user_type" required>
+                    <option value="MEM" {% if user.user_type == 'MEM' %}selected{% endif %}>Member</option>
+                    {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                    <option value="CCN" {% if user.user_type == 'CCN' %}selected{% endif %}>Course Coordinator</option>
+                    <option value="ADM" {% if user.user_type == 'ADM' %}selected{% endif %}>Admin</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <div class="mt-4 text-center">
+                {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                <a href="{% url 'user_list' %}" class="btn btn-secondary">Back to List</a>
+                {% endif %}
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

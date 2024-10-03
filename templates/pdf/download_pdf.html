@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ module.course_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .module-details {
+            margin-top: 20px;
+        }
+        .module-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ module.course_name }}</h1>
+    <div class="module-details">
+        <p><strong>Course Modules </strong> {{ module.modules }}</p>
+        
+       
+    </div>
+</body>
+</html>

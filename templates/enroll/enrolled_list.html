@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <h1>Enrolled Students</h1>
+    <a href="{% url 'enrolled_create' %}" class="btn btn-primary">Add Enrollment</a>
+
+    <div style="height: 30px;"></div>
+
+    <table class="table table-bordered table-striped" id="enrolledTable">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Enrolled By</th>
+                {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                <th>Enrollment Date</th>
+                <th>Payment Method</th>
+                {% endif %}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in enrolled_students %}
+            <tr>
+                <td>{{ student.course_name }}</td>
+                <td>{{ student.enroll_by }}</td>
+                {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                <td>{{ student.enroll_date }}</td>
+                <td>{{ student.payment_method }}</td>
+                {% endif %}
+                <td>
+                    <a href="{% url 'enrolled_detail' student.pk %}" class="btn btn-sm btn-primary">View</a>
+                    {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                    <a href="{% url 'enrolled_update' student.pk %}" class="btn btn-sm btn-secondary">Edit</a>
+                    <a href="{% url 'enrolled_delete' student.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+{% endblock content %}

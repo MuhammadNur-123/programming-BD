@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Courses</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .course-card {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .course-card img {
+            width: 100%;
+            height: auto;
+        }
+        .course-card .card-body {
+            padding: 20px;
+        }
+        .course-card h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .course-card p {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Live Courses With Class Records</h1>
+        <div class="row">
+            <!-- Course Card 1 -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="python-course.jpg" alt="Become a Python Developer">
+                    <div class="card-body">
+                        <h5 class="card-title">Become a Python Developer</h5>
+                        <p><strong>Course Start:</strong> 12th October 2024</p>
+                        <p><strong>Class Time:</strong> 8:30PM (2 Classes/Week)</p>
+                        <p><strong>Course Length:</strong> 50 Hours</p>
+                        <p><strong>Course Instructor:</strong> Md. Azizul Hakim</p>
+                        <p><strong>Fee:</strong> 5000 Taka</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 2 -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="data-analysis.jpg" alt="Data Analysis Specialization">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Analysis Specialization</h5>
+                        <p><strong>Course Start:</strong> 14th September 2024</p>
+                        <p><strong>Class Time:</strong> 8:00PM (2 Classes/Week)</p>
+                        <p><strong>Course Length:</strong> 50 Hours</p>
+                        <p><strong>Course Instructor:</strong> Mr. Zarin Hasan</p>
+                        <p><strong>Fee:</strong> 6000 Taka</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 3 -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="big-data-engineer.jpg" alt="Become a Big Data Engineer">
+                    <div class="card-body">
+                        <h5 class="card-title">Become a Big Data Engineer</h5>
+                        <p><strong>Course Start:</strong> 22nd June 2024</p>
+                        <p><strong>Class Time:</strong> 9:00-11:00 PM</p>
+                        <p><strong>Course Length:</strong> 45 Hours</p>
+                        <p><strong>Course Instructor:</strong> A.K.M. Alfaz Uddin</p>
+                        <p><strong>Fee:</strong> 6000 Taka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

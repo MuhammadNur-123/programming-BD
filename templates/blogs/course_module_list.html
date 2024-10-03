@@ -1,0 +1,95 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Course Module List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f9fa;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .add-module {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .add-module:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Course Module List</h1>
+        <ul>
+            {% for module in modules %}
+                <li><a href="{% url 'course_module_detail' module.pk %}">{{ module.course_name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+        <a class="add-module" href="{% url 'course_module_create' %}">Add New Module</a>
+        {% endif %}
+        <a class="add-module" href="{% url 'dashboard' %}" >Back to Dashboard</a>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

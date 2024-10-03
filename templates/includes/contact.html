@@ -1,0 +1,156 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Office Address</h4>
+                <p>House 1, Road 1, Khilkhet, Dhaka, Bangladesh</p>
+                <p>Support Email: <a href="mailto:programmingbd@gmail.com">programmingbd@gmail.com</a></p>
+                <p>Helpline: +880 1234 567890, +880 9876 543210</p>
+                <p>Availability: Saturday to Thursday, 10 AM to 7 PM</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li> <a href="{% url 'blog_list' %}">Blog</a></li>
+                    <li><a href="{% url 'instractor_profile' %}">About us</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us & Downloads</h4>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/Muhammad579502nur" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.kaggle.com/mdnurhossen" target="_blank"><i class="fab fa-kaggle"></i></a></li>
+                    <li><a href="www.linkedin.com/in/
+                        muhammadnur123" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/MuhammadNur-123" target="_blank"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://github.com/MuhammadNur-123" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Programming-BD</p>
+        </div>
+        <div class="quick-contact">
+            <a href="tel:+8801234567890" target="_blank"><i class="fas fa-phone"></i></a>
+        </div>
+    </div>
+
+    <!-- JS for handling interactive elements if needed -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</div>
+
+</main>
+<style>
+    General body and container styling
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ae4ce3b8; /* Black background */
+    color: #1c7cc5a6; /* White text for contrast */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #0a0000;
+}
+
+p, a {
+    color: #110202;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0d33ca; /* Change link color on hover */
+}
+
+/* Styling for the "Useful Links" and "Follow Us" lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #ccc;
+}
+
+ul li a:hover {
+    color: #c5138c;
+}
+
+/* Social media icons styling */
+.social-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-links li a {
+    color: #0a0101;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+    color: #082996aa; /* Highlight color on hover */
+}
+
+/* Footer section */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #0e0202;
+}
+
+.quick-contact {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.quick-contact a {
+    background-color: #9a30d7e6;
+    color: #f2d7c2d4;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.quick-contact a:hover {
+    background-color: #10061a6e;
+    color: #04131fa7;
+}
+
+</style>
+
+{% endblock %}

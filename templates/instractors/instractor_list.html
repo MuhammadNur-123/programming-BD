@@ -1,0 +1,59 @@
+
+{% extends "base.html" %}
+
+{% block content %} 
+<main>
+<h1>Instructors</h1>
+<table class="table table-bordered table-striped" id="userTable">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Education</th>
+        <th>Phone Number</th>
+        <th>Date Of Birth</th>
+        <th>Possition</th>
+        <th>Exclucive Possition</th>
+        {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+        
+        <th>Actions</th>
+        {% endif %}
+    </tr>
+    {% for instractor in instractors %}
+    <tr>
+        <td>
+            {% if instractor.image %}
+                <img src="{{ instractor.image.url }}" alt="Profile Image" width="50" height="50">
+            {% else %}
+                No Image
+            {% endif %}
+           </td>
+        <td>{{ instractor.name }}</td>
+        <td>{{ instractor.email }}</td>
+        <td>{{ instractor.country }}</td>
+        <td>{{ instractor.education }}</td>
+        <td>{{ instractor.phone_number }}</td>
+        <td>{{ instractor.date_of_birth }}</td>
+        <td>{{ instractor.possiton }}</td>
+        <td>{{ instractor.excluci }}</td>
+        {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+
+        <td>
+
+            
+            
+             
+            <a href="{% url 'delete_instractor' instractor.id %}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+       {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+
+<a href="{% url 'create_instractor' %}" class="btn btn-primary" id="up">Add New Instructor</a>
+{% endif %}
+
+</main> 
+{% endblock content %}

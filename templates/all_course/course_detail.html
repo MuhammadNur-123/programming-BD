@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.get_course_name_display }} - Course Details</title>
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="course-header">
+            <h1>{{ course.get_course_name_display }}</h1>
+            <div class="course-image-wrapper">
+                <img src="{{ course.image.url }}" alt="{{ course.course_name }}" class="course-image">
+            </div>
+        </header>
+        
+        <div class="course-content">
+            <h2>Course Overview</h2>
+            <p>{{ course.description }}</p>
+            
+            <div class="course-meta">
+                <p><strong>Instructor:</strong> {{ course.instractor.name }}</p>
+                <p><strong>Start Date:</strong> {{ course.start_class }}</p>
+                <p><strong>Duration:</strong> {{ course.course_length }}</p>
+                <p><strong>Total Seats:</strong> {{ course.total_sit }}</p>
+                <p><strong>Fee:</strong> ${{ course.course_fee }}</p>
+            </div>
+        </div>
+
+        <footer class="course-footer">
+            {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+            <a href="{% url 'course_update' course.pk %}" class="btn btn-update">Edit</a>
+            <a href="{% url 'course_delete' course.pk %}" class="btn btn-delete">Delete</a>
+            {% endif %}
+            <a href="{% url 'course_list' %}" class="btn btn-back">Back to List</a>
+            <a class="add-module" href="{% url 'enrolled_create' %}" >Enroll Now</a>
+        </footer>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

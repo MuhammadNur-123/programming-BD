@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Blog</title>
+    <style>
+        /* Style for the page */
+        body {
+            background-color: #e6f2ff; /* Light blue background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #333333;
+            font-size: 18px;
+        }
+
+        /* Marquee style */
+        marquee {
+            color: #ff6600;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Div for content organization */
+        .course {
+            background-color: #f8f9fa;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .course h2 {
+            color: #0066cc;
+        }
+
+        /* Style for the button */
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #28a745; /* Green background */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        /* YouTube video embedding style */
+        .video {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .video iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 340px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <marquee>Check out our latest blogs and courses on Machine Learning, Data Analysis, AI, and more!</marquee>
+
+    <div class="content">
+        
+        <h1>Course Support Video Playlist </h1>
+        <a href="{% url 'enrolled_list' %}" class="btn btn-sm btn-primary">Back to List</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+       
+       
+
+        <div class="course">
+            <h2>Machine Learning</h2>
+            <p>Explore the fundamentals of machine learning, from supervised to unsupervised learning, and how to apply it in real-world applications.</p>
+            <a href="https://youtu.be/yItGkyAd3CI?si=CWVs1quJlJ39zRJp" class="btn">Watch ML Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Data Analysis</h2>
+            <p>Learn data analysis techniques to clean, process, and visualize data using tools like Python, Pandas, and Matplotlib.</p>
+            <a href="https://youtu.be/MxOXm4zApMk?si=EN0QIJ7Ci0eUjxSh" class="btn">Watch Data Analysis Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Deep Learning</h2>
+            <p>Understand the power of deep learning, neural networks, and how they are applied in modern AI systems.</p>
+            <a href="https://youtu.be/t80QpULdMqQ?si=t_8xUrsb8dPXKdlL" class="btn">Watch Deep Learning Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Web Design & Development</h2>
+            <p>Learn the principles of modern web design and development using HTML, CSS, JavaScript, and popular frameworks.</p>
+            <a href="https://youtu.be/3VcmZ3anN1I?si=qej1nQEBXrDW0Pq0" class="btn">Watch Web Dev Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Python & Django</h2>
+            <p>Master Python and Django to build scalable and dynamic web applications with ease.</p>
+            <a href="https://youtu.be/rg_sfVVZZzA?si=KiQwTAU0dFLeH1dY" class="btn">Watch Python & Django Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Artificial Intelligence</h2>
+            <p>Dive into AI, learning about algorithms, robotics, and how machines mimic human intelligence.</p>
+            <a href="https://youtu.be/rdexw3Rc5cw?si=wZ3lmsdBoNN85T_c" class="btn">Watch AI Video</a>
+        </div>
+
+        <div class="course">
+            <h2>Data Science</h2>
+            <p>Get a complete understanding of data science, working with big data, data visualization, and predictive modeling.</p>
+            <a href="https://youtu.be/M49JyZDj-jQ?si=DyQqPzmA78XGCIRk" class="btn">Watch Data Science Video</a>
+        </div>
+
+        
+            
+            
+        </div>
+        
+    </div>
+
+</body>
+</html>

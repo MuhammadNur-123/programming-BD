@@ -1,0 +1,150 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e2dcdc;
+    color: #e9baba;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* Dashboard Cards */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-category {
+    font-size: 12px;
+    font-weight: 600;
+    color: #aaa;
+}
+
+.card-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card .icon-big {
+    font-size: 36px;
+}
+
+.card .numbers {
+    text-align: right;
+}
+
+/* Icon Colors */
+.card-primary .icon-big {
+    color: #007bff;
+}
+
+.card-info .icon-big {
+    color: #17a2b8;
+}
+
+.card-success .icon-big {
+    color: #28a745;
+}
+
+.card-secondary .icon-big {
+    color: #6c757d;
+}
+
+.card .text-warning {
+    color: #ffc107;
+}
+
+.card .text-success {
+    color: #28a745;
+}
+.card .text-blue {
+    color: #062cc5;
+}
+.card .text-max {
+    color: #d9152c;
+}
+
+.card .text-danger {
+    color: #dc3545;
+}
+
+.card .text-primary {
+    color: #007bff;
+}
+
+/* Progress Bar Styling */
+.progress {
+    height: 8px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: #007bff;
+}
+
+.progress-bar.bg-info {
+    background-color: #17a2b8;
+}
+
+.progress-bar.bg-success {
+    background-color: #28a745;
+}
+
+.progress-bar.bg-danger {
+    background-color: #dc3545;
+}
+
+.progress-bar.bg-secondary {
+    background-color: #6c757d;
+}
+
+/* Chart container */
+.chart-container {
+    position: relative;
+    height: 375px;
+}
+
+/* Card header tools */
+.card-tools {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-tools .btn {
+    margin-left: 10px;
+}
+
+.card-tools .btn-label {
+    margin-right: 5px;
+}
+
+/* Custom button styling */
+.btn-label-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-label-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .numbers {
+        text-align: left;
+    }
+
+    .card .icon-big {
+        text-align: left;
+    }
+}

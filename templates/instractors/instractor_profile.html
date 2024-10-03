@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Profile</title>
+   
+</head>
+<body>
+       <div class="marquee-container">
+        <marquee behavior="scroll" direction="left">
+            <h1>All CEO, CCO, Advisor, and Instructor Information</h1>
+        </marquee> 
+  
+    </div>
+    <div class="container">
+        <header>
+            <h2>Meet Our Team</h2>
+            <div class="br">
+            <div class="back-btn" >
+                <a href="{% url 'dashboard' %}" class="btn btn-back">Back to Dashboard</a>
+            </div>
+        </div>
+        </header>
+        <div style="height: 50px;"></div>
+
+        <div class="course-grid">
+            {% for instractor in instractors %}
+            <div class="profile-card">
+                <img src="{{ instractor.image.url }}" alt="{{ instractor.name }}" class="profile-image">
+                <div class="profile-info">
+                    <h3>{{ instractor.name }}</h3>
+                    <p><strong>Position:</strong> {{ instractor.possiton }}</p>
+                    <p><strong>Exclusive:</strong> {{ instractor.excluci }}</p>
+                    <p><strong>Education:</strong> {{ instractor.education }}</p>
+                    <p><strong>Country:</strong> {{ instractor.country }}</p>
+                    <p><strong>Date of Birth:</strong> {{ instractor.date_of_birth }}</p>
+                    <p><strong>Email:</strong> {{ instractor.email }}</p>
+                    <p><strong>Phone:</strong> {{ instractor.phone_number }}</p>
+                    <p><strong>Biography:</strong> {{ instractor.bio|truncatewords:20 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c8e3ec;
+    margin: 0;
+    padding: 20px;
+    
+}
+
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.marquee-container {
+    background-color: #eae4e7;
+    padding: 10px;
+}
+
+marquee h1 {
+    color: rgb(15, 14, 14);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(221, 192, 192);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Back Button */
+.btn-back {
+    background-color: #3a86c9;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: -40px;
+    transition: background-color 0.5s;
+    
+}
+
+.btn-back:hover {
+    background-color: #c8d3dd;
+}
+
+/* Course Grid */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(118, 56, 56, 0.1);
+    overflow: hidden;
+    transition: transform 2s;
+}
+
+.profile-card:hover {
+    transform: translateY(-20px);
+}
+
+/* Profile Image */
+.profile-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #7038d790;
+}
+
+/* Profile Info */
+.profile-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.profile-info h3 {
+    font-size: 1.8rem;
+    color: #0f1e2e;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.profile-info strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Bio */
+.profile-info p:last-of-type {
+    font-style: italic;
+    color: #8dbee9;
+    margin-top: 10px;
+}
+
+</style>
+{% endblock %}

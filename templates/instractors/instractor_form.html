@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block content %} 
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Instructor Registration</title>
+         <!-- Link to your CSS file -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h2 class="text-center">Instructor Registration</h2>
+            <form method="post" action="{% url 'create_instractor' %}" enctype="multipart/form-data" id="registrationForm">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="instractor_id">Instructor ID</label>
+                    <input type="text" class="form-control" id="instractor_id" name="instractor_id" value="{{ form.instractor_id.value }}" required>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+    
+                
+    
+                <div class="form-group mt-3">
+                    <label for="excluci">Position</label>
+                    <select class="form-control" id="excluci" name="excluci" required>
+                        {% for key, value in form.excluci.field.choices %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="education">Education Level</label>
+                    <select class="form-control" id="education" name="education" required>
+                        {% for key, value in form.education.field.choices %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="date_of_birth">Date of Birth</label>
+                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="bio">Biography</label>
+                    <textarea class="form-control" id="bio" name="bio" rows="3" required></textarea>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="country">Country</label>
+                    <select class="form-control" id="country" name="country" required>
+                        {% for key, value in form.country.field.choices %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="possiton">Position</label>
+                    <select class="form-control" id="possiton" name="possiton" required>
+                        {% for key, value in form.possiton.field.choices %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="linkdlen_id">LinkedIn ID</label>
+                    <input type="text" class="form-control" id="linkdlen_id" name="linkdlen_id">
+                </div>
+    
+                <div class="form-group mt-3">
+                    <label for="image">Profile Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+    
+                <div class="mt-4 text-center">
+                    <a href="{% url 'instractor_list' %}" class="btn btn-secondary">Back to List</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
+    </body>
+    </html>
+{% endblock content %}

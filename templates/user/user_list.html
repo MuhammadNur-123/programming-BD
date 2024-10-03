@@ -1,0 +1,69 @@
+ 
+{% extends "base.html" %}
+
+{% block content %}                                                                                                                                                                                               
+<main>
+    <div>
+        <h2 class="text-center">User List</h2>
+        <div style="margin-left: 1250px;">
+            <a href="{% url 'create_user' %}" class="btn btn-primary"> Create New User</a>
+        </div>
+            <br>
+            <form method="GET" action="">
+                <div class="input-group mb-3">
+                    <input type="text" name="q" class="form-control" placeholder="Search users..." value="{{ search_query|default:'' }}">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>    
+        </div>
+        <table class="table table-bordered table-striped" id="userTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Education</th>
+                    <th>Phone Number</th>
+                    <th>Membership Number</th>
+                    <th>User Type</th>
+                    <th>Active</th>
+                    
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>
+                        {% if user.image %}
+                            <img src="{{ user.image.url }}" alt="Profile Image" width="50" height="50">
+                        {% else %}
+                            No Image
+                        {% endif %}
+                       </td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.get_education_display }}</td>
+                    <td>{{ user.phone_number }}</td>
+                    <td>{{ user.membership_number }}</td>
+                    <td>{{ user.get_user_type_display }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'update_user_status' user.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="checkbox" name="is_active" {% if user.is_active %}checked{% endif %} onchange="this.form.submit();">
+                        </form>
+                    </td>
+    
+                   
+                   
+                    <td>
+                        <a href="{% url 'update_user' user.id %}" class="btn btn-sm btn-primary">Update</a>
+                        <a href="{% url 'delete_user' user.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock content %}

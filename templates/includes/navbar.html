@@ -1,0 +1,107 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h2><span class="Firstletter">P</span>rogramming-BD</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="width: 300px;"></div>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home Dropdown -->
+                    <li class="nav-item"><a class="nav-link" href="{%url 'dashboard'%}">Dashboard</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                            <li><a class="dropdown-item" href="{% url 'create_user'%}">New Register</a></li>
+                            <li><a class="dropdown-item" href="{% url 'user_list'%}">User List</a></li>
+                            <li><a class="dropdown-item" href="{% url 'create_instractor'%}">Add New Instractor</a></li>
+                            <li><a class="dropdown-item" href="{% url 'course_create'%}">Add New Course</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'instractor_list'%}">Instractor List</a></li>
+                            <li><a class="dropdown-item" href="{% url 'course_list'%}">Course List</a></li>
+                           
+                            <li><a class="dropdown-item" href="{% url 'enrolled_create'%}">Enrolled</a></li>
+
+                            
+                           
+                        </ul>
+                    </li>
+
+                    <!-- Courses Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">All Courses</a>
+                        <ul class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <li><a class="dropdown-item" href="#">Python</a></li>
+                            <li><a class="dropdown-item" href="#">Web Development</a></li>
+                            <li><a class="dropdown-item" href="#">Python Django</a></li>
+                            <li><a class="dropdown-item" href="#">Machine Learning</a></li>
+                            <li><a class="dropdown-item" href="#">Data Science</a></li>
+                            <li><a class="dropdown-item" href="#">Artificial Intelligence</a></li>
+                            <li><a class="dropdown-item" href="#">Data Analysis</a></li>
+                            <li><a class="dropdown-item" href="#">Apps Development</a></li>
+                            <li><a class="dropdown-item" href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            {% if user.user_type == 'CCN' or user.user_type == 'ADM' %}
+                          <li>  <a class="dropdown-item" href="{% url 'blog_create' %}">Create Blog</a></li>
+                          <li><a class="dropdown-item" href="{% url 'course_module_create' %}">Add New Course Module</a></li>
+                          {% endif %}
+
+                            <li><a class="dropdown-item" href="{% url 'blog_list' %}">Blog List</a></li>
+                            
+                            <li><a class="dropdown-item" href="{% url 'course_module_list' %}">Course Module List</a></li>
+                            
+                           
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Products</a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'instractor_profile' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact'%}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'youtube_search'%}">YouTube</a></li>
+                </ul>
+
+                <!-- User Profile Section -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" id="userDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if user.is_authenticated %}
+                                {% if user.image %}
+                                    <img src="{{ user.image.url }}" class="rounded-circle" width="30" height="30" alt="Profile Picture">
+                                {% else %}
+                                    <img src="/media/default_img/moti-1.jpeg" class="rounded-circle" width="30" height="30" alt="Default Profile Picture">
+                                {% endif %}
+                                <span class="ms-2">{{ user.username }}</span>
+                            {% else %}
+                                <i class="fas fa-user fa-fw"></i>
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'profile_view' %}">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                <li><a class="dropdown-item" href="{% url 'create_user' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
